@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="49745" started-at="2019-10-23T11:33:27Z" finished-at="2019-10-23T11:34:17Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="49745" started-at="2019-10-23T11:33:27Z" finished-at="2019-10-23T11:34:17Z">
+      <class name="WeatherUpdate">
+        <test-method status="PASS" signature="weatherTweet()[pri:0, instance:WeatherUpdate@234bef66]" name="weatherTweet" duration-ms="49036" started-at="2019-10-23T17:03:27Z" finished-at="2019-10-23T17:04:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- weatherTweet -->
+      </class> <!-- WeatherUpdate -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
