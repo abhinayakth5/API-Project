@@ -1,10 +1,10 @@
+package src1;
 
 
-import static io.restassured.RestAssured.given;
 
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.util.Properties;
+
 
 import org.testng.annotations.Test;
 
@@ -13,19 +13,16 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class WeatherUpdate {
+public class WeatherUpdate extends Property1{
 
-	Properties prop;
+	
 
 	@Test
 	public void weatherTweet() throws IOException
 	{
-		prop = new Properties();
-		FileInputStream fis = new FileInputStream("C:\\Users\\Online Test\\Desktop\\mahaboob\\MyProject\\src\\data.properties");
-		prop.load(fis);
 		
 		RestAssured.baseURI = "https://api.twitter.com/1.1/search";
-		Response res = given().auth().oauth(prop.getProperty("ConsumerKey"),prop.getProperty("ConsumerSecret"),prop.getProperty("Token"),prop.getProperty("TokenSecret")).
+		Response res = Property1.property().
 		param("q","weather,Bangalore").
 		when().
 		get("/tweets.json").
@@ -33,11 +30,11 @@ public class WeatherUpdate {
 		extract().response();
 		
 		String response = res.asString();
-		//System.out.println(response);
+		//log.info(response);
 		
 		JsonPath js = new JsonPath(response);
 		int count = js.get("statuses.size()");
-		//System.out.println(count);
+		//log.info(count);
 		
 		String resp;
 		for(int i=0;i<count;i++)
@@ -46,7 +43,7 @@ public class WeatherUpdate {
 			if(place.contains("Bengaluru")||place.contains("Bangalore"))
 			{
 				resp = js.get("statuses["+i+"]").toString();
-				System.out.println(resp);
+				log.info(resp);
 			}
 		}
 	}
